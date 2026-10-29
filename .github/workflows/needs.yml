@@ -7,7 +7,7 @@ jobs:
   code-quality:
     runs-on: ubuntu-latest
     outputs:
-        quality-code-version: {{ steps.quality-code-version.outputs.quality-code-version }}
+      code-quality-version: ${{ steps.quality-code-version.outputs.code-quality-version }}
     steps:
       - name: Récupérer le dépôt
         uses: actions/checkout@v7
@@ -15,7 +15,7 @@ jobs:
         run: echo "Vérification de la qualité du code"
       - name: quality code version
         id: quality-code-version
-        run: echo "code-quality-version=1.0.0" >> $GITHUB_ENV
+        run: echo "code-quality-version=1.0.0" >> $GITHUB_OUTPUT
       - name: Linting du code
         run: echo "Linting du code"
       - name: Afficher la version de la qualité du code
@@ -37,7 +37,7 @@ jobs:
       - name: Exécuter les tests
         run: echo "Exécution des tests"
       - name: Afficher la version de la qualité du code
-        run: echo La version de la qualité du code ${{ needs.code-quality.outputs.quality-code-version }}
+        run: echo La version de la qualité du code ${{ needs.code-quality.outputs.code-quality-version }}
   build:
     needs: [test]
     runs-on: ubuntu-latest
