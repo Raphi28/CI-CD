@@ -32,3 +32,4 @@ jobs:
                     echo ${{github.ref}}
                     echo ${{github.MA_VARIABLE}}
                     echo ${{runner.os}}
+                    echo ${{secrets.API_KEY}}
