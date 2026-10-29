@@ -36,8 +36,8 @@ jobs:
         uses: actions/checkout@v7
       - name: Exécuter les tests
         run: echo "Exécution des tests"
-        - name: Afficher la version de la qualité du code
-          run: echo La version de la qualité du code ${{ needs.code-quality.outputs.quality-code-version }}
+      - name: Afficher la version de la qualité du code
+        run: echo La version de la qualité du code ${{ needs.code-quality.outputs.quality-code-version }}
   build:
     needs: [test]
     runs-on: ubuntu-latest
